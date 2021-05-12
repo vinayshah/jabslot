@@ -1,0 +1,16 @@
+<h4>Known Your TimeSlot</h4>
+<mat-form-field appearance="fill">
+  <mat-label>State</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let state of states" [value]="state.state_id">
+      {{state.state_name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<h4> List </h4>
+<mat-nav-list>
+  <mat-list-item *ngFor="let state of states">
+    <p>{{ state.state_id }}</p>
+  </mat-list-item>
+</mat-nav-list>
