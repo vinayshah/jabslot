@@ -5,8 +5,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatListModule } from '@angular/material/list';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -14,7 +17,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpClientModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    MatAutocompleteModule,
+    BrowserAnimationsModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { SState } from './states';
+import {IndiaStates, SState} from './states';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,22 @@ export class StateService {
   /** GET heroes from the server */
   getStates(): Observable<SState[]> {
     return this.http.get<SState[]>(this.statesURL).pipe(
-      tap(_ => this.log('fetched states')),
+      tap(
+        data => this.log('fetched states' + data),
+        error => this.log(error),
+      ),
       catchError(this.handleError<SState[]>('getStates', []))
+    );
+  }
+
+  /** GET heroes from the server */
+  getIndiaStates(): Observable<IndiaStates> {
+    return this.http.get<IndiaStates>(this.statesURL).pipe(
+      tap(
+        data => this.log('fetched states' + data),
+        error => this.log(error),
+      )
+      // catchError(this.handleError<IndiaStates>('getStates', []))
     );
   }
 

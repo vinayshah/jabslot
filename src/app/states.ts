@@ -1,3 +1,7 @@
+export interface IndiaStates {
+  states: [SState],
+  ttl: number
+}
 export interface SState {
   state_id: number;
   state_name: string;

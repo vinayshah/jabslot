@@ -1,5 +1,5 @@
 import { Component, OnInit, VERSION } from '@angular/core';
-import { SState } from './states';
+import {IndiaStates, SState} from './states';
 import { StateService } from './state.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { StateService } from './state.service';
 })
 export class AppComponent implements OnInit {
   states: SState[] = [];
+  IndianStates: IndiaStates = Object();
 
   constructor(private stateService: StateService) {}
 
@@ -17,8 +18,9 @@ export class AppComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.stateService.getStates().subscribe(states => {
-      this.states = states['states'];
+    this.stateService.getIndiaStates().subscribe(states => {
+      this.IndianStates = states;
+      this.states = this.IndianStates.states;
     });
   }
 }
