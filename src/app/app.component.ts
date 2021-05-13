@@ -1,5 +1,5 @@
 import { Component, OnInit, VERSION } from '@angular/core';
-import {IndiaStates, SState} from './states';
+import { IndiaStates, SState } from './states';
 import { StateService } from './state.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { StateService } from './state.service';
 })
 export class AppComponent implements OnInit {
   states: SState[] = [];
+  district = [];
   IndianStates: IndiaStates = Object();
   selectedStateId = 11;
 

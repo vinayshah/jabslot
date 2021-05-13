@@ -1,9 +1,12 @@
 <h4>Known Your TimeSlot</h4>
 <mat-form-field appearance="fill">
   <mat-label>State</mat-label>
-  <mat-select [ngModel]="selectedStateId" (ngModelChange)="onStateChange($event)">
+  <mat-select [ngModel]="selectedStateId" (ngModelChange)="onStateChange($event)" name="state">
     <mat-option *ngFor="let state of states" [value]="state.state_id">
       {{state.state_name}}
     </mat-option>
+  </mat-select>
+  <mat-select>
+    
   </mat-select>
 </mat-form-field>
