@@ -11,6 +11,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  i = 0;
   states: SState[] = [];
   IndianStates: IndiaStates = Object();
 
@@ -24,9 +25,9 @@ export class AppComponent implements OnInit {
   selectedCityId = 770;
 
   constructor(private stateService: StateService) {
-    interval(10000).subscribe((x => {
-      this.getSlots();
-    }))
+    // interval(this.i).subscribe(x => {
+    //   this.getSlots();
+    // });
   }
 
   ngOnInit() {
@@ -58,5 +59,9 @@ export class AppComponent implements OnInit {
         this.centers = this.districtCenter.centers;
         console.log(this.centers);
       });
+  }
+
+  ngOnDestruct() {
+    this.i = 0;
   }
 }
