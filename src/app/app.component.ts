@@ -10,6 +10,7 @@ import { StateService } from './state.service';
 export class AppComponent implements OnInit {
   states: SState[] = [];
   IndianStates: IndiaStates = Object();
+  selectedStateId = 11;
 
   constructor(private stateService: StateService) {}
 
@@ -22,5 +23,9 @@ export class AppComponent implements OnInit {
       this.IndianStates = states;
       this.states = this.IndianStates.states;
     });
+  }
+
+  onStateChange(stateId) {
+    console.log(stateId);
   }
 }
