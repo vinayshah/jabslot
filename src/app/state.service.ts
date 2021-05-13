@@ -47,7 +47,7 @@ export class StateService {
     const url = `${this.calendarByDistrictURL}?district_id=${id}&date=${date}`;
     return this.http.get<Centers>(url).pipe(
       retry(2),
-      tap(_ => this.log(`fetched district id=${id}`)),
+      tap(_ => this.log(url)),
       catchError(this.handleError<Centers>(`calendarByDistrict id=${id}`))
     );
   }

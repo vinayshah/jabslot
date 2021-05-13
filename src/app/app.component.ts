@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   selectedCityId = 770;
 
   constructor(private stateService: StateService) {
-    interval(2000).subscribe((x => {
+    interval(10000).subscribe((x => {
       this.getSlots();
     }))
   }
@@ -56,6 +56,7 @@ export class AppComponent implements OnInit {
       .subscribe(d => {
         this.districtCenter = d;
         this.centers = this.districtCenter.centers;
+        console.log(this.centers);
       });
   }
 }
