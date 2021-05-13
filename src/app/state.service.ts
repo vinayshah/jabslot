@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Districts, IndiaStates, SState } from './states';
+import { Centers } from './centers';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,10 @@ export class StateService {
 
   calendarByDistrict(id: number, date: string) {
     const url = `${this.calendarByDistrictURL}?district_id=${id}&date=${date}`;
-    console.log(url);
+    return this.http.get<Centers>(url).pipe(
+      tap(_ => this.log(`fetched district id=${id}`)),
+      catchError(this.handleError<Centers>(`calendarByDistrict id=${id}`))
+    );
   }
 
   /**

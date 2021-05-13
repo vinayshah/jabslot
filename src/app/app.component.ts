@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   district: Districts = Object();
   cities: City[] = [];
 
+  centers: Center[] = [];
+
   selectedStateId = 11;
   selectedCityId = 770;
 
@@ -42,6 +44,10 @@ export class AppComponent implements OnInit {
 
   getSlots() {
     const date = formatDate(new Date(), 'dd-MM-yyyy', 'en');
-    this.stateService.calendarByDistrict(this.selectedCityId, date);
+    this.stateService
+      .calendarByDistrict(this.selectedCityId, date)
+      .subscribe(d => {
+        console.log(d);
+      });
   }
 }
