@@ -42,6 +42,6 @@ export class AppComponent implements OnInit {
 
   getSlots() {
     const date = formatDate(new Date(), 'dd-MM-yyyy', 'en');
-    this.stateService.findByDistrictId(this.selectedCityId, date);
+    this.stateService.calendarByDistrict(this.selectedCityId, date);
   }
 }

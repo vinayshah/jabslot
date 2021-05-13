@@ -13,8 +13,8 @@ export class StateService {
   private statesURL = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
   private districtsURL =
     'https://cdn-api.co-vin.in/api/v2/admin/location/districts';
-  private findByDistrictURL =
-    'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict';
+  private calendarByDistrictURL =
+    'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict';
 
   constructor(private http: HttpClient) {}
 
@@ -42,8 +42,8 @@ export class StateService {
     );
   }
 
-  findByDistrictId(id: number, date: string) {
-    const url = `${this.findByDistrictURL}?district_id=${id}&date=${date}`;
+  calendarByDistrict(id: number, date: string) {
+    const url = `${this.calendarByDistrictURL}?district_id=${id}&date=${date}`;
     console.log(url);
   }
 
