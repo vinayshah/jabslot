@@ -1,15 +1,30 @@
 <h4>Known Your TimeSlot</h4>
-<mat-form-field appearance="fill">
-  <mat-label>State</mat-label>
-  <mat-select [ngModel]="selectedStateId" (ngModelChange)="onStateChange($event)" name="state">
-    <mat-option *ngFor="let state of states" [value]="state.state_id">
-      {{state.state_name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>District</mat-label>
-  <mat-select>
+<div class="$1">
+  <mat-form-field appearance="fill">
+    <mat-label>State</mat-label>
+    <mat-select
+      [ngModel]="selectedStateId"
+      (ngModelChange)="onStateChange($event)"
+      name="state"
+    >
+      <mat-option *ngFor="let state of states" [value]="state.state_id">
+        {{state.state_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 
-  </mat-select>
-</mat-form-field>
+<div class="$1">
+  <mat-form-field appearance="fill">
+    <mat-label>District</mat-label>
+    <mat-select [ngModel]="selectedCityId" name="$1">
+      <mat-option *ngFor="let city of cities" [value]="city.district_id">
+        {{city.district_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="$1">
+  <mat-list role="list"> </mat-list>
+</div>

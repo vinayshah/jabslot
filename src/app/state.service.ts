@@ -4,23 +4,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import {IndiaStates, SState} from './states';
+import { Districts, IndiaStates, SState } from './states';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateService {
   private statesURL = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
+  private districtsURL =
+    'https://cdn-api.co-vin.in/api/v2/admin/location/districts';
 
   constructor(private http: HttpClient) {}
 
   /** GET heroes from the server */
   getStates(): Observable<SState[]> {
     return this.http.get<SState[]>(this.statesURL).pipe(
-      tap(
-        data => this.log('fetched states' + data),
-        error => this.log(error),
-      ),
+      tap(data => this.log('fetched states' + data), error => this.log(error)),
       catchError(this.handleError<SState[]>('getStates', []))
     );
   }
@@ -28,11 +27,16 @@ export class StateService {
   /** GET heroes from the server */
   getIndiaStates(): Observable<IndiaStates> {
     return this.http.get<IndiaStates>(this.statesURL).pipe(
-      tap(
-        data => this.log('fetched states' + data),
-        error => this.log(error),
-      )
+      tap(data => this.log('fetched states' + data), error => this.log(error))
       // catchError(this.handleError<IndiaStates>('getStates', []))
+    );
+  }
+
+  getDistrictsById(id: number) {
+    const url = `${this.districtsURL}/${id}`;
+    return this.http.get<Districts>(url).pipe(
+      tap(_ => this.log(`fetched district id=${id}`)),
+      catchError(this.handleError<Districts>(`getDistrictsById id=${id}`))
     );
   }
 

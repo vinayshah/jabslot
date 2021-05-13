@@ -1,5 +1,5 @@
 import { Component, OnInit, VERSION } from '@angular/core';
-import { IndiaStates, SState } from './states';
+import { City, Districts, IndiaStates, SState } from './states';
 import { StateService } from './state.service';
 
 @Component({
@@ -9,24 +9,36 @@ import { StateService } from './state.service';
 })
 export class AppComponent implements OnInit {
   states: SState[] = [];
-  district = [];
   IndianStates: IndiaStates = Object();
+
+  district: Districts = Object();
+  cities: City[] = [];
+
   selectedStateId = 11;
+  selectedCityId = 770;
 
   constructor(private stateService: StateService) {}
 
   ngOnInit() {
-    this.getHeroes();
+    this.getStates();
+    this.onStateChange(this.selectedStateId);
   }
 
-  getHeroes(): void {
+  getStates(): void {
     this.stateService.getIndiaStates().subscribe(states => {
       this.IndianStates = states;
       this.states = this.IndianStates.states;
     });
   }
 
-  onStateChange(stateId) {
-    console.log(stateId);
+  onStateChange(stateId: number) {
+    this.stateService.getDistrictsById(stateId).subscribe(d => {
+      this.district = d;
+      this.cities = this.district.districts;
+    });
+  }
+
+  getSlots() {
+    
   }
 }
