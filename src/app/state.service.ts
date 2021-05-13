@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, retry, tap } from 'rxjs/operators';
 
 import { Districts, IndiaStates, SState } from './states';
 import { Centers } from './centers';
@@ -46,6 +46,7 @@ export class StateService {
   calendarByDistrict(id: number, date: string) {
     const url = `${this.calendarByDistrictURL}?district_id=${id}&date=${date}`;
     return this.http.get<Centers>(url).pipe(
+      retry(2),
       tap(_ => this.log(`fetched district id=${id}`)),
       catchError(this.handleError<Centers>(`calendarByDistrict id=${id}`))
     );
