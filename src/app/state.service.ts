@@ -13,6 +13,8 @@ export class StateService {
   private statesURL = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
   private districtsURL =
     'https://cdn-api.co-vin.in/api/v2/admin/location/districts';
+  private findByDistrictURL =
+    'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict';
 
   constructor(private http: HttpClient) {}
 
@@ -38,6 +40,11 @@ export class StateService {
       tap(_ => this.log(`fetched district id=${id}`)),
       catchError(this.handleError<Districts>(`getDistrictsById id=${id}`))
     );
+  }
+
+  findByDistrictId(id: number, date: string) {
+    const url = `${this.findByDistrictURL}?district_id=${id}&date=${date}`;
+    console.log(url);
   }
 
   /**

@@ -1,6 +1,7 @@
 import { Component, OnInit, VERSION } from '@angular/core';
 import { City, Districts, IndiaStates, SState } from './states';
 import { StateService } from './state.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'my-app',
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.getStates();
     this.onStateChange(this.selectedStateId);
+    this.getSlots();
   }
 
   getStates(): void {
@@ -39,6 +41,7 @@ export class AppComponent implements OnInit {
   }
 
   getSlots() {
-    
+    const date = formatDate(new Date(), 'dd-MM-yyyy', 'en');
+    this.stateService.findByDistrictId(this.selectedCityId, date);
   }
 }
