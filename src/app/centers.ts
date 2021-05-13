@@ -7,6 +7,7 @@ export interface Center {
   name: string;
   address: string;
   state_name: string;
+  pincode: number;
   sessions: [CenterSession];
 }
 

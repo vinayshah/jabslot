@@ -1,5 +1,5 @@
 <h4>Known Your TimeSlot</h4>
-<div class="$1">
+<div class="states">
   <mat-form-field appearance="fill">
     <mat-label>State</mat-label>
     <mat-select
@@ -14,7 +14,7 @@
   </mat-form-field>
 </div>
 
-<div class="$1">
+<div class="district">
   <mat-form-field appearance="fill">
     <mat-label>District</mat-label>
     <mat-select [ngModel]="selectedCityId" name="$1">
@@ -25,7 +25,7 @@
   </mat-form-field>
 </div>
 
-<div class="$1">
+<div class="timeslot">
   <mat-list role="list">
     <mat-list-item *ngFor="let center of centers">
       <div *ngFor="let session of center.sessions">
