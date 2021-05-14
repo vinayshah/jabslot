@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
       .subscribe(d => {
         this.districtCenter = d;
         this.centers = this.districtCenter.centers;
-        console.log(this.centers);
+        // console.log(this.centers);
       });
   }
 
