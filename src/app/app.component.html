@@ -33,7 +33,9 @@
 <div class="row timeslot">
     <mat-list role="list">
         <div *ngIf="centers.length > 0; else elseBlock">
-            <mat-icon matBadge="{{statusCallNO}}" matBadgeColor="warn"> Available Slots</mat-icon>
+            <!-- <mat-icon matBadge="{{statusCallNO}}" matBadgeColor="warn"> Available Slots</mat-icon> -->
+            <p><span>{{statusCallNO}} status call </span></p>
+            <p>Available Slot</p>
             <mat-list-item *ngFor="let center of centers">
                 <div *ngFor="let session of center.sessions">
                     <div *ngIf="session.min_age_limit < 45 && session.available_capacity > 0; else elseBlock">
