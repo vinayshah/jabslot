@@ -38,7 +38,7 @@
             <p>Available Slot</p>
             <mat-list-item *ngFor="let center of centers">
                 <div *ngFor="let session of center.sessions">
-                    <div *ngIf="session.min_age_limit < 45 && session.available_capacity > 0; else elseBlock">
+                    <div *ngIf="session.min_age_limit < 45 && session.available_capacity > 0">
                         <p>{{center.pincode}}</p>
                     </div>
                 </div>
