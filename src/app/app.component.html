@@ -17,7 +17,9 @@
 <div class="district">
   <mat-form-field appearance="fill">
     <mat-label>District</mat-label>
-    <mat-select [ngModel]="selectedCityId" name="$1">
+    <mat-select [ngModel]="selectedCityId"
+                (ngModelChange)="onDistrictChange($event)"
+                name="district">
       <mat-option *ngFor="let city of cities" [value]="city.district_id">
         {{city.district_name}}
       </mat-option>
@@ -27,14 +29,21 @@
 
 <div class="timeslot">
   <mat-list role="list">
-    <mat-list-item *ngFor="let center of centers">
-      <div *ngFor="let session of center.sessions">
-        <div
-          *ngIf="session.min_age_limit < 45 && session.available_capacity > 0"
-        >
-          <p>{{center.pincode}}</p>
+    <div *ngIf="centers.length > 0; else elseBlock">
+      <p> Available Slots</p>
+      <mat-list-item *ngFor="let center of centers">
+        <div *ngFor="let session of center.sessions">
+          <div
+            *ngIf="session.min_age_limit < 45 "
+          >
+            <p>{{center.pincode}}</p>
+          </div>
         </div>
-      </div>
-    </mat-list-item>
+      </mat-list-item>
+    </div>
+    <ng-template #elseBlock>
+      <p>No TimeSlot Found</p>
+    </ng-template>
+
   </mat-list>
 </div>

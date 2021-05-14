@@ -50,6 +50,11 @@ export class AppComponent implements OnInit {
     });
   }
 
+  onDistrictChange(districtId: number) {
+    this.selectedCityId = districtId;
+    this.getSlots();
+  }
+
   getSlots() {
     const date = formatDate(new Date(), 'dd-MM-yyyy', 'en');
     this.stateService
