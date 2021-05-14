@@ -1,12 +1,17 @@
-<h4>Known Your TimeSlot</h4>
-<div class="states">
+<div class="row">
+  <h4>Known Your TimeSlot</h4>
+  <div class="select-age">
+    <mat-radio-group [ngModel]='selectedAgeGroup' aria-label="Select Age Group">
+      <mat-radio-button value="1">18 - 44</mat-radio-button>
+      <mat-radio-button value="2">>= 45</mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+
+<div class="row states">
   <mat-form-field appearance="fill">
     <mat-label>State</mat-label>
-    <mat-select
-      [ngModel]="selectedStateId"
-      (ngModelChange)="onStateChange($event)"
-      name="state"
-    >
+    <mat-select [ngModel]="selectedStateId" (ngModelChange)="onStateChange($event)" name="state">
       <mat-option *ngFor="let state of states" [value]="state.state_id">
         {{state.state_name}}
       </mat-option>
@@ -14,12 +19,10 @@
   </mat-form-field>
 </div>
 
-<div class="district">
+<div class="row district">
   <mat-form-field appearance="fill">
     <mat-label>District</mat-label>
-    <mat-select [ngModel]="selectedCityId"
-                (ngModelChange)="onDistrictChange($event)"
-                name="district">
+    <mat-select [ngModel]="selectedCityId" (ngModelChange)="onDistrictChange($event)" name="district">
       <mat-option *ngFor="let city of cities" [value]="city.district_id">
         {{city.district_name}}
       </mat-option>
@@ -27,15 +30,13 @@
   </mat-form-field>
 </div>
 
-<div class="timeslot">
+<div class="row timeslot">
   <mat-list role="list">
     <div *ngIf="centers.length > 0; else elseBlock">
       <p> Available Slots</p>
       <mat-list-item *ngFor="let center of centers">
         <div *ngFor="let session of center.sessions">
-          <div
-            *ngIf="session.min_age_limit < 45 "
-          >
+          <div *ngIf="session.min_age_limit < 45 && session.available_capacity > 0; else elseBlock">
             <p>{{center.pincode}}</p>
           </div>
         </div>

@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
 
   selectedStateId = 11;
   selectedCityId = 770;
+  selectedAgeGroup = 1;
 
   constructor(private stateService: StateService) {
     // interval(this.i).subscribe(x => {

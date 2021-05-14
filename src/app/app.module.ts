@@ -5,9 +5,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatListModule } from '@angular/material/list';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatTableModule} from '@angular/material/table';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatListModule,
     MatTableModule,
     MatAutocompleteModule,
+    MatRadioModule,
     BrowserAnimationsModule
   ],
   declarations: [AppComponent],
