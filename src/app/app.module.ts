@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatListModule } from '@angular/material/list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatTableModule} from '@angular/material/table';
 
 
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MatSelectModule,
     MatListModule,
+    MatTableModule,
     MatAutocompleteModule,
     BrowserAnimationsModule
   ],
