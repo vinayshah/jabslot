@@ -8,6 +8,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTableModule,
     MatAutocompleteModule,
     MatRadioModule,
+    MatBadgeModule,
     BrowserAnimationsModule
   ],
   declarations: [AppComponent],

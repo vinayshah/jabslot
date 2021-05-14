@@ -15,7 +15,7 @@ export class StateService {
   private districtsURL =
     'https://cdn-api.co-vin.in/api/v2/admin/location/districts';
   private calendarByDistrictURL =
-    'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict';
+    'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict';
 
   constructor(private http: HttpClient) {}
 
